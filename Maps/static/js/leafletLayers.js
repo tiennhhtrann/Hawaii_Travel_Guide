@@ -1,7 +1,7 @@
 // Store our API endpoint as queryUrl.
 var parkingURL = "https://services.arcgis.com/tNJpAOha4mODLkXz/arcgis/rest/services/Parking_Facilities/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson";
 var hotelURL = "https://geodata.hawaii.gov/arcgis/rest/services/BusinessEconomy/MapServer/2/query?outFields=*&where=1%3D1&f=geojson";
-
+var trailsURL = "https://geodata.hawaii.gov/arcgis/rest/services/Terrestrial/MapServer/34/query?outFields=*&where=1%3D1&f=geojson"
 layers = {}
 d3.json(hotelURL).then(function (hotelData) {
   // Once we get a response, send the data.features object to the createFeatures function.
@@ -9,15 +9,19 @@ d3.json(hotelURL).then(function (hotelData) {
   
   d3.json(parkingURL).then(function (parkingData) {
     // Once we get a response, send the data.features object to the createFeatures function.
-    layers.parking = createFeatures(parkingData.features);
-    createMap(layers)
+    layers.parking = createParking(parkingData.features);
+    d3.json(trailsURL).then(function (trailData){
+      layers.trails = createTrails(trailData.features)
+      createMap(layers)
+    })
+    
   });
 });
 
 
 
 
-function createFeatures(parkingData) {
+function createParking(parkingData) {
 
   // Define a function that we want to run once for each feature in the features array.
   // Give each feature a popup that describes the place and time of the earthquake.
@@ -46,11 +50,35 @@ function createHotels(hotelData) {
   // Create a GeoJSON layer that contains the features array on the parkingData object.
   // Run the onEachFeature function once for each piece of data in the array.
   var hotels = L.geoJSON(hotelData, {
-    onEachFeature: onEachFeature
+    onEachFeature: onEachFeature,
+    pointToLayer: function (feature, latlng) {
+      return L.circleMarker(latlng, {fillColor : 'green', color:'green'});
+    },
   });
 
   // Send our parking_structures layer to the createMap function/
   return hotels;
+}
+
+function createTrails(trailData) {
+
+  // Define a function that we want to run once for each feature in the features array.
+  // Give each feature a popup that describes the place and time of the earthquake.
+  function onEachFeature(feature, layer) {
+    layer.bindPopup(`<h3>${feature.properties.trailname}</h3><hr><p>Length: ${feature.properties.length_mi} miles`);
+  }
+
+  // Create a GeoJSON layer that contains the features array on the parkingData object.
+  // Run the onEachFeature function once for each piece of data in the array.
+  var trail = L.geoJSON(trailData, {
+    onEachFeature: onEachFeature,
+    style: {
+      color: "purple"
+    }
+  });
+
+  // Send our parking_structures layer to the createMap function/
+  return trail
 }
 
 
@@ -75,13 +103,14 @@ function createMap(layers) {
   // Create an overlay object to hold our overlay.
   var overlayMaps = {
     parking_structures: layers.parking,
-    hotels : layers.hotel
+    hotels : layers.hotel,
+    trails : layers.trails
   };
   // Create our map, giving it the streetmap and parking_structures layers to display on load.
   var myMap = L.map("map", {
     center: [21.48, -157.9],
     zoom: 11.5,
-    layers: [street, layers.parking]
+    layers: [street, layers.parking, layers.trails]
   });
 
   // Create a layer control.
