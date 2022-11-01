@@ -1,11 +1,21 @@
 // Store our API endpoint as queryUrl.
-var queryUrl = "https://services.arcgis.com/tNJpAOha4mODLkXz/arcgis/rest/services/Parking_Facilities/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson";
+var parkingURL = "https://services.arcgis.com/tNJpAOha4mODLkXz/arcgis/rest/services/Parking_Facilities/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson";
+var hotelURL = "https://geodata.hawaii.gov/arcgis/rest/services/BusinessEconomy/MapServer/2/query?outFields=*&where=1%3D1&f=geojson";
 
-// Perform a GET request to the query URL/
-d3.json(queryUrl).then(function (data) {
+layers = {}
+d3.json(hotelURL).then(function (hotelData) {
   // Once we get a response, send the data.features object to the createFeatures function.
-  createFeatures(data.features);
+  layers.hotel = createHotels(hotelData.features);
+  
+  d3.json(parkingURL).then(function (parkingData) {
+    // Once we get a response, send the data.features object to the createFeatures function.
+    layers.parking = createFeatures(parkingData.features);
+    createMap(layers)
+  });
 });
+
+
+
 
 function createFeatures(parkingData) {
 
@@ -21,11 +31,31 @@ function createFeatures(parkingData) {
     onEachFeature: onEachFeature
   });
 
-  // Send our parking_structures layer to the createMap function/
-  createMap(parking_structures);
+  // Return our parking_structures layer 
+  return(parking_structures)
 }
 
-function createMap(parking_structures) {
+function createHotels(hotelData) {
+
+  // Define a function that we want to run once for each feature in the features array.
+  // Give each feature a popup that describes the place and time of the earthquake.
+  function onEachFeature(feature, layer) {
+    layer.bindPopup(`<h3>${feature.properties.name}</h3><hr><p>${feature.properties.address}`);
+  }
+
+  // Create a GeoJSON layer that contains the features array on the parkingData object.
+  // Run the onEachFeature function once for each piece of data in the array.
+  var hotels = L.geoJSON(hotelData, {
+    onEachFeature: onEachFeature
+  });
+
+  // Send our parking_structures layer to the createMap function/
+  return hotels;
+}
+
+
+
+function createMap(layers) {
 
   // Create the base layers.
   var street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -44,14 +74,14 @@ function createMap(parking_structures) {
 
   // Create an overlay object to hold our overlay.
   var overlayMaps = {
-    parking_structures: parking_structures
+    parking_structures: layers.parking,
+    hotels : layers.hotel
   };
-
   // Create our map, giving it the streetmap and parking_structures layers to display on load.
   var myMap = L.map("map", {
     center: [21.48, -157.9],
     zoom: 11.5,
-    layers: [street, parking_structures]
+    layers: [street, layers.parking]
   });
 
   // Create a layer control.
@@ -62,3 +92,5 @@ function createMap(parking_structures) {
   }).addTo(myMap);
 
 }
+
+

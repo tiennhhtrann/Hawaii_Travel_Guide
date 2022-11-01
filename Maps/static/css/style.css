@@ -8,3 +8,75 @@ body,
 html {
   height: 100%;
 }
+
+
+.intro{
+  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.background{
+  background-color: rgb(231, 231, 231);
+}
+
+.navbar{
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+
+#top-left{
+  background-color: #ee7246;
+
+  font-size: 30px;
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  margin-left: 1%;
+  padding: 5px;
+
+}
+#top-left:hover{
+  opacity: 0.7;
+}
+.active{
+  color: black
+}
+
+.navbar{
+  background-color: white;
+}
+
+
+.nav-link{
+  color:rgb(58, 0, 0);
+}
+
+.nav-item{
+  color:rgb(58, 0, 0);
+}
+.nav-item:hover{
+  background-color:#ee7246;
+}
+
+h1{
+  color:#bb4d24;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+p{
+  font-size: 18px;
+  color: rgb(123, 121, 121);
+  text-align: justify;
+}
+
+.container{
+  margin-top: 50px;
+  margin-bottom: 35px;
+  background-color: white;
+  column-gap: 40px;
+}
