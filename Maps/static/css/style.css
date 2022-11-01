@@ -1,6 +1,8 @@
 body {
   padding: 0;
   margin: 0;
+  background-image: url(https://wallpapercave.com/wp/wp11398945.jpg);
+  background-size: cover;
 }
 
 #map,
@@ -25,7 +27,12 @@ html {
   padding-bottom: 0;
 }
 
-
+.body-text{
+  margin-top: 5%;
+  background-color: #f3cdbe;
+  margin-left: 5;
+  margin-right: 5;
+}
 #top-left{
   background-color: #ee7246;
 
@@ -45,7 +52,7 @@ html {
 }
 
 .navbar{
-  background-color: white;
+  background-color: #f3cdbe;
 }
 
 
@@ -62,6 +69,7 @@ html {
 
 h1{
   color:#bb4d24;
+  text-align: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: bold;
   font-size: 30px;
@@ -72,6 +80,10 @@ p{
   font-size: 18px;
   color: rgb(123, 121, 121);
   text-align: justify;
+}
+ul{
+  display: table;
+  margin: 0 auto;
 }
 
 .container{
