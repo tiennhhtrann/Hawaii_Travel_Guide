@@ -27,9 +27,9 @@ html {
   padding-bottom: 0;
 }
 
-.body-text{
+#body-text{
   margin-top: 5%;
-  background-color: #f3cdbe;
+  background-color: rgba(243, 205, 190,0.8);
   margin-left: 5;
   margin-right: 5;
 }
@@ -78,12 +78,17 @@ h1{
 
 p{
   font-size: 18px;
-  color: rgb(123, 121, 121);
+  color: rgb(74, 74, 74);
   text-align: justify;
 }
 ul{
   display: table;
   margin: 0 auto;
+}
+
+.links{
+  text-decoration: underline;
+  color:rgb(136, 73, 246)
 }
 
 .container{
@@ -93,5 +98,7 @@ ul{
   column-gap: 40px;
 }
 
-
+.title{
+  padding-top: 20px;
+}
 

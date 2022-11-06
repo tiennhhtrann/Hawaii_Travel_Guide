@@ -19,20 +19,17 @@ d3.json(hotelURL).then(function (hotelData) {
 });
 
 
-
-
 function createParking(parkingData) {
 
-  // Define a function that we want to run once for each feature in the features array.
-  // Give each feature a popup that describes the place and time of the earthquake.
   function onEachFeature(feature, layer) {
     layer.bindPopup(`<h3>${feature.properties.NAME}</h3><hr><p>${feature.properties.ADDRESS}, ${feature.properties.CITY_1}</p>`);
   }
 
-  // Create a GeoJSON layer that contains the features array on the parkingData object.
-  // Run the onEachFeature function once for each piece of data in the array.
   var parking_structures = L.geoJSON(parkingData, {
-    onEachFeature: onEachFeature
+    onEachFeature: onEachFeature,
+    pointToLayer: function (feature, latlng) {
+      return L.circleMarker(latlng, {fillColor : 'green', color:'green'});
+    },
   });
 
   // Return our parking_structures layer 
@@ -41,35 +38,23 @@ function createParking(parkingData) {
 
 function createHotels(hotelData) {
 
-  // Define a function that we want to run once for each feature in the features array.
-  // Give each feature a popup that describes the place and time of the earthquake.
   function onEachFeature(feature, layer) {
     layer.bindPopup(`<h3>${feature.properties.name}</h3><hr><p>${feature.properties.address}`);
   }
 
-  // Create a GeoJSON layer that contains the features array on the parkingData object.
-  // Run the onEachFeature function once for each piece of data in the array.
   var hotels = L.geoJSON(hotelData, {
-    onEachFeature: onEachFeature,
-    pointToLayer: function (feature, latlng) {
-      return L.circleMarker(latlng, {fillColor : 'green', color:'green'});
-    },
+    onEachFeature: onEachFeature
   });
 
-  // Send our parking_structures layer to the createMap function/
   return hotels;
 }
 
 function createTrails(trailData) {
 
-  // Define a function that we want to run once for each feature in the features array.
-  // Give each feature a popup that describes the place and time of the earthquake.
   function onEachFeature(feature, layer) {
     layer.bindPopup(`<h3>${feature.properties.trailname}</h3><hr><p>Length: ${feature.properties.length_mi} miles`);
   }
 
-  // Create a GeoJSON layer that contains the features array on the parkingData object.
-  // Run the onEachFeature function once for each piece of data in the array.
   var trail = L.geoJSON(trailData, {
     onEachFeature: onEachFeature,
     style: {
@@ -77,7 +62,6 @@ function createTrails(trailData) {
     }
   });
 
-  // Send our parking_structures layer to the createMap function/
   return trail
 }
 
@@ -106,11 +90,11 @@ function createMap(layers) {
     hotels : layers.hotel,
     trails : layers.trails
   };
-  // Create our map, giving it the streetmap and parking_structures layers to display on load.
+  // Create our map, giving it default layers
   var myMap = L.map("map", {
     center: [21.48, -157.9],
     zoom: 11.5,
-    layers: [street, layers.parking, layers.trails]
+    layers: [street, layers.parking, layers.hotel, layers.trails]
   });
 
   // Create a layer control.
