@@ -102,3 +102,15 @@ ul{
   padding-top: 20px;
 }
 
+button{
+  background-color: #f3cdbe;
+  border-color: #f3cdbe;
+  margin-top: 5px;
+  color:rgb(58, 0, 0);
+}
+
+h3{
+  color:#bb4d24;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
