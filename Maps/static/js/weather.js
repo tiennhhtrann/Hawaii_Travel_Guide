@@ -7,14 +7,14 @@ d3.json(weather_url).then(function(data) {
     return a.temperature - b.temperature;
   });
   bottom_10_temp = data.slice(0,10)
-  makePlot("temp_plot", bottom_10_temp, "temperature", "Top 10 Coldest Cities in Hawaii")
+  makePlot("temp_plot", bottom_10_temp, "temperature", "Top 10 Coldest Cities in Hawaii (°F)")
 
   // wind speed
   data.sort(function(a, b){
     return b.wind_speed - a.wind_speed;
   });
   top_10_windspd = data.slice(0,10)
-  makePlot("wind_plot", top_10_windspd, "wind_speed", "Cities with the Strongest Wind")
+  makePlot("wind_plot", top_10_windspd, "wind_speed", "Cities with the Strongest Wind (mph)")
   // cloudiness
   data.sort(function(a, b){
     return b.cloudiness - a.cloudiness;
@@ -22,7 +22,7 @@ d3.json(weather_url).then(function(data) {
   top_10_cloudiness = data.slice(0,10)
 
   console.log(top_10_cloudiness)
-  makePlot("cloud_plot", top_10_cloudiness, "cloudiness", "Cities with the highest cloudiness")
+  makePlot("cloud_plot", top_10_cloudiness, "cloudiness", "Cities with the highest cloudiness (%)")
 
 
 } )

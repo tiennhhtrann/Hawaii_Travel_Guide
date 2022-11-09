@@ -93,7 +93,7 @@ function createMap(layers) {
   // Create our map, giving it default layers
   var myMap = L.map("map", {
     center: [21.48, -157.9],
-    zoom: 11.5,
+    zoom: 10.5,
     layers: [street, layers.parking, layers.hotel, layers.trails]
   });
 
