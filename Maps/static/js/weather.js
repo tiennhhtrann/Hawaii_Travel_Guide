@@ -1,4 +1,4 @@
-weather_url = "http://127.0.0.1:5000/api/v1.0/weather-hawaii"
+weather_url = "http://hawaiiweatherapp-env.eba-ucmjr47q.us-east-1.elasticbeanstalk.com/api/v1.0/weather-hawaii"
 
 
 d3.json(weather_url).then(function(data) {
