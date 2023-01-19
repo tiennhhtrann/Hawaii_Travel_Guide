@@ -1,0 +1,62 @@
+city_name,main_weather,temperature,humidity,cloudiness,wind_speed
+Aiea,Rain,74.0,71.0,75.0,19.57
+Anahola,Clear,73.5,67.0,0.0,14.97
+Captain Cook,Clouds,71.9,75.0,30.0,3.87
+Eleele,Clouds,75.0,74.0,24.0,12.66
+Ewa Beach,Rain,74.3,69.0,75.0,19.57
+Haleiwa,Clouds,74.5,63.0,75.0,6.91
+Hana,Clear,70.2,73.0,10.0,5.75
+Hanalei,Clouds,72.4,69.0,16.0,11.7
+Hanamaulu,Clear,74.7,62.0,0.0,14.97
+Hanapepe,Clouds,73.5,74.0,25.0,12.68
+Hauula,Clouds,74.4,66.0,75.0,6.91
+Hawi,Clear,72.2,74.0,2.0,19.46
+Hilo,Clouds,75.2,76.0,40.0,1.01
+Holualoa,Clouds,72.9,74.0,75.0,14.97
+Honokaa,Clear,69.7,77.0,0.0,1.01
+Honolulu,Rain,74.0,73.0,75.0,17.27
+Honomu,Clouds,74.0,80.0,40.0,0.0
+Kaaawa,Clear,74.6,72.0,5.0,9.28
+Kahuku,Clouds,74.3,72.0,13.0,4.0
+Kahului,Clouds,78.0,64.0,20.0,13.8
+Kailua,Clear,74.5,74.0,0.0,1.99
+Kalaheo,Clouds,73.1,76.0,19.0,10.94
+Kaneohe,Rain,74.2,73.0,75.0,17.27
+Kapaa,Clear,74.3,65.0,0.0,14.97
+Kapaau,Clear,71.4,75.0,4.0,18.99
+Kaunakakai,Clear,76.8,69.0,0.0,8.05
+Keaau,Clouds,73.5,82.0,40.0,0.0
+Kealakekua,Clouds,71.2,75.0,28.0,4.05
+Kekaha,Haze,75.1,69.0,100.0,12.66
+Kihei,Clouds,76.4,68.0,20.0,13.8
+Kilauea,Clear,71.8,69.0,10.0,13.6
+Koloa,Clear,75.2,50.0,0.0,14.97
+Kualapuu,Clear,73.8,69.0,0.0,8.05
+Kurtistown,Clouds,72.4,82.0,40.0,0.0
+Lahaina,Clouds,76.2,72.0,11.0,10.94
+Laie,Clouds,74.3,72.0,11.0,4.0
+Lanai City,Clouds,68.6,83.0,40.0,12.66
+Lawai,Clear,74.0,50.0,0.0,14.97
+Lihue,Clear,74.5,62.0,0.0,14.97
+Makawao,Clouds,67.9,74.0,20.0,13.8
+Maunaloa,Clear,73.2,69.0,0.0,8.05
+Mililani,Rain,72.0,68.0,75.0,19.57
+Mountain View,Haze,46.6,82.0,0.0,4.61
+Naalehu,Clear,71.4,74.0,1.0,8.95
+Pahala,Clear,70.5,76.0,5.0,0.89
+Paia,Clouds,75.2,66.0,20.0,13.8
+Papaikou,Clouds,74.4,76.0,40.0,1.01
+Pearl City,Rain,74.3,70.0,75.0,19.57
+Pepeekeo,Clouds,72.9,77.0,40.0,1.01
+Princeville,Clouds,34.7,92.0,100.0,2.3
+Pukalani,Clouds,68.0,74.0,20.0,13.8
+Schofield Barracks,Clouds,71.3,64.0,75.0,6.91
+Volcano,Clouds,61.1,86.0,67.0,4.32
+Wahiawa,Clouds,71.3,66.0,75.0,6.91
+Waialua,Clouds,74.4,56.0,75.0,6.91
+Waianae,Rain,74.5,62.0,75.0,19.57
+Waikoloa,Clouds,70.6,97.0,54.0,8.16
+Wailuku,Clouds,74.6,67.0,20.0,13.8
+Waimanalo,Clear,74.3,75.0,0.0,1.99
+Waimea,Clouds,63.4,97.0,51.0,10.0
+Waipahu,Rain,74.2,69.0,75.0,19.57
